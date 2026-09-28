@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -22,7 +22,7 @@ export class App implements OnInit {
 
   termoBusca: string = '';
   categoriaSelecionada: string = '';
-  loading: boolean = true;
+  loading = signal(false);
   erroMensagem: string | null = null;
   cardSelecionado: Card | null = null;
 
@@ -36,7 +36,7 @@ export class App implements OnInit {
   }
 
   carregarCards(): void {
-    this.loading = true;
+    this.loading.set(true);
     this.erroMensagem = null;
 
     this.cardService.getTodosCards().subscribe({
@@ -48,12 +48,12 @@ export class App implements OnInit {
         } else {
           this.erroMensagem = 'Formato de resposta inválido da API.';
         }
-        this.loading = false;
+        this.loading.set(false);
       },
       error: (err: any) => {
         console.error('Erro ao buscar cards:', err);
         this.erroMensagem = 'Não foi possível carregar os posts. Verifique sua conexão ou token.';
-        this.loading = false;
+        this.loading.set(false);
       }
     });
   }

@@ -7,7 +7,7 @@
   </header>
 
   <!-- Filtros e Busca -->
-  @if (!loading) {
+  @if (!loading()) {
     <section class="filter-section">
       <div class="search-box">
         <input 
@@ -38,7 +38,7 @@
   }
 
   <!-- Skeletons de carregamento -->
-  @if (loading) {
+  @if (loading()) {
     <div class="grid-cards">
       @for (i of [1, 2, 3, 4, 5, 6]; track i) {
         <div class="card skeleton-card">
@@ -53,7 +53,7 @@
   }
 
   <!-- Listagem de Cards -->
-  @if (!loading && cardsFiltrados.length > 0) {
+  @if (!loading() && cardsFiltrados.length > 0) {
     <div class="grid-cards">
       @for (card of cardsFiltrados; track card.id) {
         <div 
@@ -72,7 +72,7 @@
           <!-- Imagem do card -->
           @if (card.imgUrl) {
             <div class="card-img-container">
-              <img [src]="card.imgUrl" [alt]="card.titulo" loading="lazy" />
+              <img [src]="card.imgUrl" [alt]="card.titulo" loading()="lazy" />
             </div>
           }
 
@@ -92,7 +92,7 @@
   }
 
   <!-- Estado vazio (sem resultados) -->
-  @if (!loading && cardsFiltrados.length === 0 && !erroMensagem) {
+  @if (!loading() && cardsFiltrados.length === 0 && !erroMensagem) {
     <div class="no-results">
       <p>Nenhum post encontrado com os filtros informados.</p>
     </div>
