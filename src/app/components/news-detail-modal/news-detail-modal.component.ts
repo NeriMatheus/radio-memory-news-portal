@@ -18,6 +18,7 @@ export class NewsDetailModalComponent {
   // Evento disparado para fechar o modal
   @Output() fechar = new EventEmitter<void>();
 
+  // Injeção do DomSanitizer
   constructor(private sanitizer: DomSanitizer) {}
 
   // Emite o sinal de fecho para o componente pai

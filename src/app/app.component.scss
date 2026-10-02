@@ -8,7 +8,7 @@ $light-bg: #f8f9fa;
 $text-main: #333333;
 $border-color: #e0e0e0;
 
-// // Seleciona o elemento raiz do componente e aplica um grid de tela cheia para manter o rodapé sempre colado no fundo (Sticky Footer).
+// Seleciona o elemento raiz do componente e aplica um grid de tela cheia para manter o rodapé sempre colado no fundo (Sticky Footer).
 :host {
   display: grid;
   grid-template-rows: auto 1fr auto; 

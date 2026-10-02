@@ -9,6 +9,7 @@ import { Card } from '../../models/card.model';
   templateUrl: './news-card.component.html',
   styleUrls: ['./news-card.component.scss']
 })
+
 export class NewsCardComponent implements OnInit {
   
   // Recebe os dados individuais de cada card
