@@ -6,21 +6,13 @@ $light-bg: #f8f9fa;
 $text-main: #333333;
 $border-color: #e0e0e0;
 
-// O :host estiliza a própria tag <app-root>, ativando o Flexbox
-:host {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  min-height: 100dvh; /* A medida que corrige a barra do celular */
-}
-
 // Container principal centralizado e responsivo
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
-  flex: 1; /* Isto é o que empurra o rodapé para baixo! */
+  flex: 1; 
 }
 
 // Grid dinâmico para disposição dos cards de notícias
