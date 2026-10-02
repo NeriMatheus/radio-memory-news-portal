@@ -1,0 +1,122 @@
+// Estilos principais do rodapé institucional
+.site-footer {
+  background-color: #0d4a7c;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+  font-family: inherit;
+  position: relative;
+  flex-shrink: 0;
+}
+
+// Topo do rodapé (logotipo)
+.footer-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  .footer-logo {
+    height: 40px;
+    object-fit: contain;
+  }
+}
+
+// Linha divisória horizontal
+.footer-line {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+// Seção central com colunas de informações
+.footer-middle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 40px auto;
+  gap: 30px;
+  text-align: center;
+}
+
+// Estilização interna das colunas
+.footer-col {
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 1rem;
+  }
+}
+
+// Textos e links com destaque em amarelo/dourado
+.highlight-text {
+  color: #ffb700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Ícones de redes sociais
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+
+  a {
+    color: #ffffff;
+    font-size: 28px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      color: #ffb700;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Selos de conformidade (Anvisa e LGPD)
+.badges {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-img {
+  height: 85px;
+  object-fit: contain;
+}
+
+.anvisa-badge {
+  height: 110px;
+}
+
+// Rodapé inferior com direitos reservados
+.footer-bottom {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #f1f1f1;
+}
+
+// Responsividade para dispositivos móveis
+@media (max-width: 768px) {
+    .footer-middle {
+        flex-direction: column;
+        gap: 40px;
+    }
+}

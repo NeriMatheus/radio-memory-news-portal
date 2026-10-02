@@ -1,0 +1,26 @@
+<!-- Seção de Filtros -->
+<section class="filter-section">
+  
+  <div class="search-box">
+    <input 
+      type="text" 
+      [ngModel]="termoBusca" 
+      (ngModelChange)="onBuscaChange($event)" 
+      placeholder="Buscar por título ou subtítulo..."
+      aria-label="Campo de busca por título ou subtítulo"
+    />
+  </div>
+
+  <div class="category-filter">
+    <select 
+      [ngModel]="categoriaSelecionada" 
+      (ngModelChange)="onCategoriaChange($event)"
+      aria-label="Filtro de categorias">
+      <option value="todas">Todas as Categorias</option>
+      @for (cat of categoriasDisponiveis; track cat) {
+        <option [value]="cat">{{ cat | titlecase }}</option>
+      }
+    </select>
+  </div>
+
+</section>

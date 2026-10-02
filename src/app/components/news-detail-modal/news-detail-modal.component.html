@@ -1,0 +1,48 @@
+<!-- Fundo escuro com fechar ao clicar fora -->
+<div class="modal-overlay" (click)="onFechar()">
+  <div class="modal-content" (click)="pararPropagacao($event)">
+    
+    <!-- Botão de fechar -->
+    <button class="close-btn" (click)="onFechar()" aria-label="Fechar modal">&times;</button>
+
+    <!-- Cabeçalho do modal -->
+    <div class="modal-header">
+      <span class="category-tag">{{ cardSelecionado.categoria }}</span>
+      <h2>{{ cardSelecionado.titulo }}</h2>
+      <p class="modal-subtitle">{{ cardSelecionado.subtitulo }}</p>
+      
+      <div class="modal-meta">
+        <span>Por: {{ cardSelecionado.autor }}</span> |
+        <span>Publicado em: {{ cardSelecionado.data | date:'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+    </div>
+
+    <!-- Imagem de destaque -->
+    @if (cardSelecionado.imgUrl) {
+      <div class="modal-img">
+        <img [src]="cardSelecionado.imgUrl" [alt]="cardSelecionado.titulo" />
+      </div>
+    }
+
+    <!-- Player de vídeo responsivo -->
+    @if (cardSelecionado.videoUrl) {
+      <div class="modal-video">
+        <iframe [src]="sanitizarVideoUrl(cardSelecionado.videoUrl)" title="Vídeo do post" frameborder="0" allowfullscreen></iframe>
+      </div>
+    }
+
+    <!-- Corpo do post sanitizado (segurança contra XSS) -->
+    <div class="modal-body-html" [innerHTML]="sanitizarCorpoHtml(cardSelecionado.corpo)"></div>
+
+    <!-- Ações / link externo programático -->
+    @if (possuiLinkValido()) {
+      <div class="modal-actions">
+        <!-- Usamos (click) em vez de href para evitar que o Angular corrompa a URL -->
+        <a (click)="abrirLinkNoNavegador()" class="btn-external" style="cursor: pointer;" aria-label="Abrir link em nova aba">
+          Ler no site &nearrow;
+        </a>
+      </div>
+    }
+
+  </div>
+</div>

@@ -1,59 +1,63 @@
-# TestePraticoRadioMemory
+# Portal de Notícias - Teste Prático (Radio Memory)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Aplicação web desenvolvida em Angular (utilizando arquitetura moderna baseada em Standalone Components) para listagem, filtragem e exibição detalhada de posts consumindo a API autenticada da Radio Memory.
 
-## Development server
+## 🚀 Tecnologias e Padrões Utilizados
 
-To start a local development server, run:
+- Angular (com Standalone Components).
+- Signals e Computed para gerir os estados reativos de forma nativa, reativa e de alta performance.
+- Injeção de Dependências Moderna utilizando a função inject().
+- Roteamento e Querystring com Router e ActivatedRoute para persistência dos filtros na URL.
+- Testes Unitários (Jasmine/Karma) com cobertura completa dos componentes estruturais.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Como Executar o Projeto
 
-## Code scaffolding
+Certifique-se de ter o Node.js e o Angular CLI instalados na sua máquina.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. Clone o repositório e entre na pasta do projeto:
+   cd teste_pratico_radio_memory
 
-```bash
-ng generate component component-name
-```
+2. Instale as dependências:
+   npm install
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Inicie o servidor de desenvolvimento:
+   ng serve
+   A aplicação ficará disponível em http://localhost:4200/.
 
-```bash
-ng generate --help
-```
+4. Execute os testes unitários:
+   ng test
 
-## Building
+---
 
-To build the project run:
+## ⚙️ Configuração do Token / Variáveis de Ambiente
 
-```bash
-ng build
-```
+Para garantir a segurança e evitar a exposição de credenciais no repositório, o token de autenticação da API encontra-se isolado no arquivo de ambiente:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Caminho: src/environments/environment.ts
 
-## Running unit tests
+export const environment = {
+  production: false,
+  apiUrl: 'https://6fx8kzbiw3.execute-api.us-east-2.amazonaws.com/prod',
+  authToken: 'SEU_TOKEN_AQUI'
+};
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## 📐 Decisões Técnicas e Arquiteturais
 
-## Running end-to-end tests
+### 1. Regras de Negócio e Ordenação
+- Filtro de Status: Apenas posts que possuem status === 1 são renderizados no portal.
+- Pins (Fixados): Um post é considerado fixado se a propriedade data_fixo existir e for maior ou igual ao momento atual (agora).
+- Ordenação Estrita: Os cards fixados aparecem sempre no topo (ordenados por data_fixo decrescente), seguidos pelos não fixados (ordenados por data de publicação decrescente).
 
-For end-to-end (e2e) testing, run:
+### 2. Sanitização e Segurança de Conteúdo
+Como o campo corpo dos posts retorna marcação HTML estruturada, é aplicada a devida sanitização antes da renderização no modal de detalhes para garantir a segurança contra vulnerabilidades.
 
-```bash
-ng e2e
-```
+### 3. Persistência de Filtros (Bônus Querystring)
+Os filtros de busca textual e de categoria selecionada estão sincronizados com os query params da URL. Isso permite que você compartilhe o link exato com o estado atual do filtro aplicado, restaurando automaticamente o estado da aplicação ao carregar a página.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 4. Experiência do Usuário (UX)
+- Skeletons/Shimmers: Implementados nas listagens para mitigar a sensação de espera durante o carregamento assíncrono dos dados.
+- Tratamento de Erros: Mensagens amigáveis de falha de requisição com botão integrado para nova tentativa (Tentar novamente).

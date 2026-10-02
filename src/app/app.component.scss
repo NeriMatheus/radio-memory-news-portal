@@ -1,0 +1,119 @@
+// Definição de variáveis globais de estilo
+@use "sass:color";
+
+$primary-blue: #0056b3;
+$dark-bg: #111111;
+$light-bg: #f8f9fa;
+$text-main: #333333;
+$border-color: #e0e0e0;
+
+// Seletor universal para normalização de caixas
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  background-color: $dark-bg;
+}
+
+body {
+  background-color: $light-bg;
+  color: $text-main;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// Container principal centralizado e responsivo
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  flex: 1;
+}
+
+// Grid dinâmico para disposição dos cards de notícias
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+// Estilização dos Skeletons (efeito de carregamento dinâmico)
+.skeleton-card {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid $border-color;
+
+  .skeleton-img {
+    height: 180px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  .skeleton-content {
+    padding: 20px;
+
+    .skeleton-line {
+      height: 14px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      margin-bottom: 10px;
+
+      &.title { width: 80%; }
+      &.subtitle { width: 50%; }
+    }
+  }
+}
+
+// Animação de shimmer para os skeletons
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// Caixas para mensagens de erro e estados vazios
+.error-message,
+.no-results {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid $border-color;
+  margin-bottom: 30px;
+
+  button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: $primary-blue;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: color.adjust($primary-blue, $lightness: -10%);
+    }
+  }
+}
+
+// Media queries para adaptação em dispositivos móveis
+@media (max-width: 500px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+}

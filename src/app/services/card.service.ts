@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { enviroment } from '../../enviroments/enviroment';
+import { map, tap } from 'rxjs/operators'; // 👈 Adicionei o tap aqui
+import { environment } from '../../environments/environment';
 import { Card } from '../models/card.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
-  private apiUrl = enviroment.apiBaseUrl;
-  private token = enviroment.apiToken;
+  private apiUrl = environment.apiBaseUrl;
+  private token = environment.apiToken;
 
   constructor(private http: HttpClient) {}
 
-  getTodosCards(): Observable<any> {
+  // Requisição para buscar todos os posts da API com tipagem forte
+  getTodosCards(): Observable<Card[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -22,6 +24,14 @@ export class CardService {
 
     const body = { acao: 'getTodosCards' };
 
-    return this.http.post<any>(this.apiUrl, body, { headers });
+    return this.http.post<Card[]>(this.apiUrl, body, { headers }).pipe(
+      
+      // 👈 Adicionando o tap para imprimir os dados puros no console
+      tap(cards => console.log('DEBUG - Dados brutos da API:', cards)),
+
+      // Filtra preventivamente os cards ativos logo na origem do serviço
+      map(cards => Array.isArray(cards) ? cards.filter(card => card.status === 1) : [])
+    );
+  
   }
 }

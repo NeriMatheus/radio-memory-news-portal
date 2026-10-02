@@ -1,0 +1,77 @@
+<!-- Cabeçalho institucional do portal -->
+<app-portal-header></app-portal-header>
+
+<div class="container">
+
+  <!-- Seção de filtros e busca dinâmica -->
+  @if (!loading()) {
+    <app-filter-section
+      [(termoBusca)]="termoBusca"
+      [(categoriaSelecionada)]="categoriaSelecionada"
+      [categoriasDisponiveis]="categoriasDisponiveis()"
+      (filtrar)="filtrarCards()">
+    </app-filter-section>
+  }
+
+  <!-- Mensagem de erro caso ocorra falha na requisição -->
+  @if (erroMensagem()) {
+    <div class="error-message">
+      <p>{{ erroMensagem() }}</p>
+
+      <button (click)="carregarCards()">
+        Tentar novamente
+      </button>
+    </div>
+  }
+
+  <!-- Skeletons de carregamento -->
+  @if (loading()) {
+    <div class="grid-cards">
+      @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+        <div class="card skeleton-card">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-content">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line subtitle"></div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Listagem de cards filtrados -->
+  @if (!loading() && cardsFiltrados().length > 0) {
+    <div class="grid-cards">
+      @for (card of cardsFiltrados(); track card.id) {
+        <app-news-card
+          [card]="card"
+          (abrir)="abrirDetalhes($event)">
+        </app-news-card>
+      }
+    </div>
+  }
+
+  <!-- Estado vazio quando nenhum resultado é encontrado -->
+  @if (
+    !loading() &&
+    cardsFiltrados().length === 0 &&
+    !erroMensagem()
+  ) {
+    <div class="no-results">
+      <p>
+        Nenhum post encontrado com os filtros informados.
+      </p>
+    </div>
+  }
+
+  <!-- Modal de detalhes do card selecionado -->
+  @if (cardSelecionado()) {
+    <app-news-detail-modal
+      [cardSelecionado]="cardSelecionado()!"
+      (fechar)="fecharDetalhes()">
+    </app-news-detail-modal>
+  }
+</div>
+
+<!-- Rodapé institucional do portal -->
+<app-portal-footer></app-portal-footer>

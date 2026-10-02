@@ -1,0 +1,36 @@
+<!-- Card principal -->
+<div 
+  class="card" 
+  [class.pinned]="isFixado" 
+  (click)="onClick()"
+  tabindex="0"
+  (keydown.enter)="onClick()"
+  role="button"
+  [attr.aria-label]="'Ler mais sobre: ' + card.titulo">
+  
+  @if (isFixado) {
+    <div class="pin-badge">⭐ Fixado</div>
+  }
+
+  <!-- Imagem -->
+  <div class="card-img-container">
+    @if (card.imgUrl) {
+      <img [src]="card.imgUrl" [alt]="card.titulo" loading="lazy" />
+    } @else {
+      <img src="radio-memory-imagem-cards.jpg" [alt]="card.titulo" loading="lazy" />
+    }
+  </div>
+
+  <!-- Conteúdo -->
+  <div class="card-body">
+    <span class="category-tag">{{ card.categoria }}</span>
+    <h3>{{ card.titulo }}</h3>
+    <p>{{ card.subtitulo }}</p>
+    
+    <!-- Rodapé -->
+    <div class="card-footer">
+      <span class="date">{{ card.data | date:'dd/MM/yyyy HH:mm' }}</span>
+      <span class="author">{{ card.autor }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+// Variáveis de escopo
+$primary-blue: #0056b3;
+$border-color: #e0e0e0;
+
+:host {
+  display: block;
+}
+
+// Estrutura principal do cartão
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid $border-color;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  &.pinned {
+    border-left: 4px solid $primary-blue;
+  }
+}
+
+// Badge de destaque para posts fixados
+.pin-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: $primary-blue;
+  color: #ffffff;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+// Contentor da imagem com altura fixa e comportamento responsivo
+.card-img-container {
+  height: 180px;
+  background: #e9ecef;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Corpo do cartão com espaçamentos flexíveis
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .category-tag {
+    font-size: 0.75rem;
+    color: $primary-blue;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #222222;
+    line-height: 1.4;
+  }
+
+  // Limitação visual a 3 linhas para manter a consistência de altura da grid
+  p {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 20px;
+    flex: 1;
+    line-height: 1.5;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+  }
+}
+
+// Rodapé 
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eeeeee;
+  padding-top: 12px;
+  font-size: 0.8rem;
+  color: #888888;
+}

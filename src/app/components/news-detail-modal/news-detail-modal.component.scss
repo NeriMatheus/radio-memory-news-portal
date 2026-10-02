@@ -1,0 +1,124 @@
+// Variáveis locais de estilo
+@use "sass:color";
+
+$primary-blue: #0056b3;
+
+:host {
+  display: block;
+}
+
+// Camada de sobreposição escura de fundo (Overlay)
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+// Contentor principal do modal com scroll interno
+.modal-content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  // Botão de fecho posicionado no canto superior direito
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #666666;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #222222;
+    }
+  }
+
+  // Cabeçalho do modal (categoria, título, subtítulo e metadados)
+  .modal-header {
+    margin-bottom: 20px;
+
+    .category-tag {
+      font-size: 0.75rem;
+      color: $primary-blue;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    h2 {
+      margin: 8px 0;
+      color: #222222;
+      line-height: 1.3;
+    }
+
+    .modal-subtitle {
+      color: #666666;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .modal-meta {
+      font-size: 0.85rem;
+      color: #888888;
+    }
+  }
+
+  // Multimédia (imagens e vídeos incorporados)
+  .modal-img img,
+  .modal-video iframe {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  // Corpo da notícia formatado em HTML dinâmico
+  .modal-body-html {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 20px;
+
+    p {
+      margin-bottom: 12px;
+    }
+  }
+
+  // Botão de redirecionamento para o site externo
+  .btn-external {
+    display: inline-block;
+    padding: 10px 16px;
+    background: $primary-blue;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+
+    &:hover {
+      background: color.adjust($primary-blue, $lightness: -10%);
+    }
+  }
+}
