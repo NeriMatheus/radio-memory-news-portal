@@ -17,6 +17,7 @@ const mockCard: Card = {
   categoria: 'Inovação'
 };
 
+// Agrupa testes dedicados ao modal
 describe('NewsDetailModalComponent', () => {
   let component: NewsDetailModalComponent;
   let fixture: ComponentFixture<NewsDetailModalComponent>;

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PortalFooterComponent } from './portal-footer.component';
 
+// Agrupa testes dedicados ao rodapé
 describe('PortalFooterComponent', () => {
   let component: PortalFooterComponent;
   let fixture: ComponentFixture<PortalFooterComponent>;
@@ -14,6 +15,7 @@ describe('PortalFooterComponent', () => {
     fixture = TestBed.createComponent(PortalFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+  
   });
 
   // Valida se o componente do rodapé é instanciado corretamente na árvore de testes

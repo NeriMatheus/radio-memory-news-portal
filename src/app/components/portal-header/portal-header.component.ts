@@ -8,5 +8,5 @@ import { CommonModule } from '@angular/common';
   templateUrl: './portal-header.component.html',
   styleUrls: ['./portal-header.component.scss']
 })
-export class PortalHeaderComponent {
-}
+
+export class PortalHeaderComponent {}

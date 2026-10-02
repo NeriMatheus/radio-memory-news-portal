@@ -1,11 +1,14 @@
+// Módulo de manipulação de cores do Sass
 @use "sass:color";
 
+// Variáveis de escopo
 $primary-blue: #0056b3;
 $dark-bg: #111111;
 $light-bg: #f8f9fa;
 $text-main: #333333;
 $border-color: #e0e0e0;
 
+// // Seleciona o elemento raiz do componente e aplica um grid de tela cheia para manter o rodapé sempre colado no fundo (Sticky Footer).
 :host {
   display: grid;
   grid-template-rows: auto 1fr auto; 
@@ -29,7 +32,7 @@ $border-color: #e0e0e0;
   margin-bottom: 40px;
 }
 
-// Estilização dos Skeletons (efeito de carregamento dinâmico)
+// Estilização dos Skeletons 
 .skeleton-card {
   background: #ffffff;
   border-radius: 10px;

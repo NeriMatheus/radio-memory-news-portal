@@ -1,7 +1,6 @@
-// Cabeçalho
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilterSectionComponent } from './filter-section.component';
-import { vi } from 'vitest'; // Adicione esta linha caso o editor continue a reclamar
+import { vi } from 'vitest'; 
 
 describe('FilterSectionComponent', () => {
   let component: FilterSectionComponent;
@@ -18,11 +17,13 @@ describe('FilterSectionComponent', () => {
     fixture.detectChanges();
   });
 
-  // Testes
+  // TESTES
+  // Smoke test: verifica se o componente foi criado com sucesso
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  // Verifica se a alteração no termo de busca emite corretamente os eventos para o componente pai
   it('deve emitir o termo de busca e acionar o filtro', () => {
     vi.spyOn(component.termoBuscaChange, 'emit');
     vi.spyOn(component.filtrar, 'emit');
@@ -35,6 +36,7 @@ describe('FilterSectionComponent', () => {
     expect(component.filtrar.emit).toHaveBeenCalled();
   });
 
+  // Verifica se a alteração na categoria selecionada emite corretamente os eventos para o componente pai.
   it('deve emitir a categoria selecionada e acionar o filtro', () => {
     vi.spyOn(component.categoriaSelecionadaChange, 'emit');
     vi.spyOn(component.filtrar, 'emit');

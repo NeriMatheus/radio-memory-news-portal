@@ -1,8 +1,10 @@
-// Variáveis locais de estilo
+// Módulo de manipulação de cores do Sass 
 @use "sass:color";
 
+// Variável de escopo
 $primary-blue: #0056b3;
 
+// Seletor que garante que o componente se comporte como um bloco
 :host {
   display: block;
 }
@@ -22,7 +24,7 @@ $primary-blue: #0056b3;
   padding: 20px;
 }
 
-// Contentor principal do modal com scroll interno
+// Modal com scroll interno
 .modal-content {
   background: #ffffff;
   padding: 30px;
@@ -34,7 +36,7 @@ $primary-blue: #0056b3;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
-  // Botão de fecho posicionado no canto superior direito
+  // Botão de fechar posicionado no canto superior direito
   .close-btn {
     position: absolute;
     top: 15px;
@@ -83,7 +85,7 @@ $primary-blue: #0056b3;
     }
   }
 
-  // Multimédia (imagens e vídeos incorporados)
+  // Multimedia (imagens e vídeos incorporados)
   .modal-img img,
   .modal-video iframe {
     width: 100%;

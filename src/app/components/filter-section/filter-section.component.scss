@@ -2,6 +2,7 @@
 $primary-blue: #0056b3;
 $border-color: #e0e0e0;
 
+// Seletor que garante que o componente se comporte como um bloco
 :host {
   display: block;
 }

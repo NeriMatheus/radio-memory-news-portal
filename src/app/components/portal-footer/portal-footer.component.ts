@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './portal-footer.component.html',
   styleUrls: ['./portal-footer.component.scss']
 })
+
 export class PortalFooterComponent {
   
   // Obtém dinamicamente o ano atual para exibição nos direitos autorais

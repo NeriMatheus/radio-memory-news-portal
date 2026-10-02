@@ -1,11 +1,12 @@
+// Seletor que garante que o componente se comporte como um bloco
 :host {
   display: block;
   width: 100%;
 }
 
-// Estilos principais do rodapé institucional
+// Estilos principais do rodapé corporativo
 .site-footer {
-  background-color: #0d4a7c;
+  background-color: #005A85;
   color: #ffffff;
   font-family: inherit;
   position: relative;
@@ -13,9 +14,6 @@
   margin-bottom: 0;
   overflow: hidden;
   padding: 40px 20px calc(20px + env(safe-area-inset-bottom));
-
-  
-  /* PROTEÇÃO CONTRA A FAIXA BRANCA */
   margin-bottom: 0;
   overflow: hidden; 
 }

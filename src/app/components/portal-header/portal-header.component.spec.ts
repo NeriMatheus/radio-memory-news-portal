@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PortalHeaderComponent } from './portal-header.component';
 
+// Agrupa testes dedicados ao componente de cabeçalho
 describe('PortalHeaderComponent', () => {
   let component: PortalHeaderComponent;
   let fixture: ComponentFixture<PortalHeaderComponent>;

@@ -2,6 +2,7 @@
 $primary-blue: #0056b3;
 $border-color: #e0e0e0;
 
+// Seletor que garante que o componente se comporte como um bloco
 :host {
   display: block;
 }
@@ -44,7 +45,7 @@ $border-color: #e0e0e0;
   z-index: 2;
 }
 
-// Contentor da imagem com altura fixa e comportamento responsivo
+// Imagem com altura fixa e comportamento responsivo
 .card-img-container {
   height: 180px;
   background: #e9ecef;
@@ -60,7 +61,7 @@ $border-color: #e0e0e0;
   }
 }
 
-// Corpo do cartão com espaçamentos flexíveis
+// Corpo do card com espaçamentos flexíveis
 .card-body {
   padding: 20px;
   display: flex;

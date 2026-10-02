@@ -1,4 +1,3 @@
-// Cabeçalho
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './filter-section.component.html',
   styleUrls: ['./filter-section.component.scss']
 })
+
 export class FilterSectionComponent {
   
   // Propriedades

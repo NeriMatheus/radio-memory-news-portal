@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators'; // 👈 Adicionei o tap aqui
-import { environment } from '../../environments/environment';
-import { Card } from '../models/card.model';
+import { Injectable } from '@angular/core'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { Observable } from 'rxjs'; 
+import { map, tap } from 'rxjs/operators'; 
+import { environment } from '../../environments/environment'; 
+import { Card } from '../models/card.model';  
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
-export class CardService {
+
+export class CardService { 
   private apiUrl = environment.apiBaseUrl;
   private token = environment.apiToken;
 
@@ -26,7 +27,7 @@ export class CardService {
 
     return this.http.post<Card[]>(this.apiUrl, body, { headers }).pipe(
       
-      // 👈 Adicionando o tap para imprimir os dados puros no console
+      // Imprime os dados puros no console
       tap(cards => console.log('DEBUG - Dados brutos da API:', cards)),
 
       // Filtra preventivamente os cards ativos logo na origem do serviço
