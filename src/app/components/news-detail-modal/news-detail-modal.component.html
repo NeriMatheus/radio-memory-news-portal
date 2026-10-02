@@ -37,6 +37,7 @@
     <!-- Ações / link externo programático -->
     @if (possuiLinkValido()) {
       <div class="modal-actions">
+        
         <!-- Usamos (click) em vez de href para evitar que o Angular corrompa a URL -->
         <a (click)="abrirLinkNoNavegador()" class="btn-external" style="cursor: pointer;" aria-label="Abrir link em nova aba">
           Ler no site &nearrow;
