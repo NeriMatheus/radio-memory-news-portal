@@ -30,7 +30,7 @@ Para cumprir com os requisitos exigidos de organização e boas práticas em Ang
 ### Passos para Instalação
 1. Clone o repositório para o seu ambiente:
    ```bash
-   git clone [https://github.com/NeriMatheus/radio-memory-news-portal.git](https://github.com/NeriMatheus/radio-memory-news-portal.git)
+   git clone https://github.com/NeriMatheus/radio-memory-news-portal.git](https://github.com/NeriMatheus/radio-memory-news-portal.git
    ```
 2. Instale todas as dependências do projeto:
    ```bash
