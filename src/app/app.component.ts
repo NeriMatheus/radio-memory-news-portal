@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // Lê os parâmetros da URL ao iniciar para persistir os filtros (Bônus)
+    // Lê os parâmetros da URL ao iniciar para persistir os filtros 
     this.activatedRoute.queryParams.subscribe(params => {
       if (params['categoria']) {
         this.categoriaSelecionada.set(params['categoria']);
