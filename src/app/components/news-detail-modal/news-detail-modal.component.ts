@@ -71,7 +71,7 @@ export class NewsDetailModalComponent {
     return this.sanitizarLink(this.cardSelecionado.urlPost) !== '#';
   }
 
-  // Abre a URL de forma segura pelo TypeScript, driblando o bloqueio do href no Angular
+  // Abre a URL de forma segura pelo TypeScript, driblando o bloqueio do href
   abrirLinkNoNavegador(): void {
     const urlSegura = this.sanitizarLink(this.cardSelecionado.urlPost);
     

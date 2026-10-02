@@ -3,7 +3,7 @@ import { NewsDetailModalComponent } from './news-detail-modal.component';
 import { Card } from '../../models/card.model';
 import { vi } from 'vitest';
 
-// Mock de dados 
+// Mock 
 const mockCard: Card = {
   id: 1,
   titulo: 'Modal Teste',

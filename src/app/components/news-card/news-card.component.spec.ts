@@ -52,7 +52,7 @@ describe('NewsCardComponent', () => {
     dataFutura.setDate(dataFutura.getDate() + 1);
     component.card.data_fixo = dataFutura.toISOString();
     
-    // Re-executa o ciclo de vida para o componente recalcular o estado com a nova data
+    // Reexecuta o ciclo de vida para o componente recalcular o estado com a nova data
     component.ngOnInit();
     expect(component.isFixado).toBe(true);
   });
@@ -63,7 +63,7 @@ describe('NewsCardComponent', () => {
     dataPassada.setDate(dataPassada.getDate() - 1);
     component.card.data_fixo = dataPassada.toISOString();
     
-    // Re-executa o ciclo de vida para o componente recalcular o estado com a nova data
+    // Reexecuta o ciclo de vida para o componente recalcular o estado com a nova data
     component.ngOnInit();
     expect(component.isFixado).toBe(false);
   });

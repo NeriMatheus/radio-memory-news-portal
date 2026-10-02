@@ -18,7 +18,7 @@ describe('FilterSectionComponent', () => {
   });
 
   // TESTES
-  // Smoke test: verifica se o componente foi criado com sucesso
+  // Verifica se o componente foi criado com sucesso
   it('should create', () => {
     expect(component).toBeTruthy();
   });
